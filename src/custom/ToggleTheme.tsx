@@ -16,7 +16,6 @@ export function ToggleTheme() {
   React.useEffect(() => {
     document.body.classList.remove('default-theme', darkTheme.className)
     document.body.classList.add(theme)
-    console.log(theme)
   }, [theme])
 
   return (

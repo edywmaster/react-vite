@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react'
 
-function usePersistedState (key: string, initialState: any) {
+function usePersistedState(key: string, initialState: any) {
   const [state, setState] = useState(() => {
     const storageValue = localStorage.getItem(key)
 
     if (storageValue) {
       return JSON.parse(storageValue)
     }
-
     return initialState
   })
 
