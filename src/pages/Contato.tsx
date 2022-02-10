@@ -3,11 +3,12 @@ import { Box, Container, Heading, Text } from '../components'
 import { Header } from '../custom/Header'
 import { TopBG } from '../custom/BackGround'
 
+
 export function Contato() {
   return (
-    <>
+    <Box>
       <Helmet>
-        <title>Contato</title>
+        <title>EWM | Contato</title>
         <meta
           name="description"
           content="Entre em contato agora."
@@ -32,7 +33,6 @@ export function Contato() {
           </Text>
         </Container>
       </Box>
-
-    </>
+    </Box>
   )
 }

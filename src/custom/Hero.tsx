@@ -140,10 +140,9 @@ export function Hero() {
                   fill={theme.colors.violet11.computedValue}
                 />
               </svg>
-
             </Flex>
             <Heading as="h4" css={{ mb: '$2' }}>
-              Desenvolvimento
+              {t("hero.development.title")}
             </Heading>
             <Text
               as="p"
@@ -156,7 +155,7 @@ export function Hero() {
                 lineHeight: '25px',
               }}
             >
-              Utilizamos diferentes tecnologias para criar soluções exclusivas, para os mais variados tipos de projetos, sejam aplicações mobile ou web.
+              {t("hero.development.text")}
             </Text>
           </Box>
           <Box>
@@ -244,7 +243,7 @@ export function Hero() {
 
             </Flex>
             <Heading as="h4" css={{ mb: '$2' }}>
-              Design
+              {t("hero.design.title")}
             </Heading>
             <Text
               as="p"
@@ -257,7 +256,7 @@ export function Hero() {
                 lineHeight: '25px',
               }}
             >
-              Criação de interfaces que atendem às expectativas do usuário. Soluções que fazem com que usar o seu app ou site seja fácil e intuitivo.
+              {t("hero.design.text")}
             </Text>
           </Box>
           <Box>
@@ -296,7 +295,7 @@ export function Hero() {
 
             </Flex>
             <Heading as="h4" css={{ mb: '$2' }}>
-              Infraestrutura
+              {t("hero.infrastructure.title")}
             </Heading>
             <Text
               as="p"
@@ -309,7 +308,7 @@ export function Hero() {
                 lineHeight: '25px',
               }}
             >
-              Oferecemos uma infraestrutura de alta disponibilidade e segura para hospedagem de ativos de TI, aplicações web, aplicativos e sites
+              {t("hero.infrastructure.text")}
             </Text>
           </Box>
           <Box>
@@ -366,7 +365,7 @@ export function Hero() {
               </svg>
             </Flex>
             <Heading as="h4" css={{ mb: '$2' }}>
-              Suporte
+              {t("hero.support.title")}
             </Heading>
             <Text
               as="p"
@@ -379,7 +378,7 @@ export function Hero() {
                 lineHeight: '25px',
               }}
             >
-              Um suporte rápido e confiável é vital no mundo digital. Cuidamos de seus negócios digitais e fornecemos um suporte especializado.
+              {t("hero.support.text")}
             </Text>
           </Box>
         </Grid>

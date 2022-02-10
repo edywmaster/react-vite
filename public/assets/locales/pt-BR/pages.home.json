@@ -1,6 +1,22 @@
 {
   "hero": {
     "title": "Soluções Digitais para Eventos",
-    "text": "Nossas soluções digitais ajudam a simplificar todas as etapas de eventos de pequeno, médio e grande porte."
+    "text": "Nossas soluções digitais ajudam a simplificar todas as etapas de eventos de pequeno, médio e grande porte.",
+    "development": {
+      "title": "Desenvolvimento",
+      "text": "Utilizamos diferentes tecnologias para criar soluções exclusivas, para os mais variados tipos de projetos, sejam aplicações mobile ou web."
+    },
+    "design": {
+      "title": "Design",
+      "text": "Criação de interfaces que atendem às expectativas do usuário. Soluções que fazem com que usar o seu app ou site seja fácil e intuitivo."
+    },
+    "infrastructure": {
+      "title": "Infraestrutura",
+      "text": "Oferecemos uma infraestrutura de alta disponibilidade e segura para hospedagem de ativos de TI, aplicações web, aplicativos moveis"
+    },
+    "support": {
+      "title": "Suporte",
+      "text": "Um suporte rápido e confiável é vital no mundo digital. Cuidamos de seus negócios digitais e fornecemos um suporte especializado."
+    }
   }
 }

@@ -1,6 +1,22 @@
 {
   "hero": {
     "title": "Digital Solutions for Events",
-    "text": "Our digital solutions help simplify all stages of small, medium and large events."
+    "text": "Our digital solutions help simplify all stages of small, medium and large events.",
+    "development": {
+      "title": "Development",
+      "text": "We use different technologies to create exclusive solutions for the most varied types of projects, whether mobile or web."
+    },
+    "design": {
+      "title": "Design",
+      "text": "Creating interfaces that meet user expectations. Solutions that make using your app or website easy and intuitive."
+    },
+    "infrastructure": {
+      "title": "Infrastructure",
+      "text": "We offer a high availability and secure infrastructure for hosting IT assets, web applications and mobile applications."
+    },
+    "support": {
+      "title": "Support",
+      "text": "Fast and reliable support is vital in the digital world. We take care of your digital business and provide expert support."
+    }
   }
 }
