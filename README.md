@@ -14,48 +14,9 @@ Estudo de como iniciar um projeto em 2022 utilizando novos métodos de criação
   - [ ] Botão de alternância dos temas
   - [ ] Armazenar preferência do usuário em localStore
 
-# 🛠 Tecnologias utilizadas
-
-## Vite
-
-A Vite que tem como objetivo a disponibilidade de módulos ES nativos no navegador e de ferramentas JavaScript escritas em idiomas compilados para nativos. Saiba mais no site [vitejs.dev](https://vitejs.dev/) ou Git [vitejs/vite](https://github.com/vitejs/vite)
-
-## Stitches
-
-Biblioteca para estilizar componentes ou criar design system. Saiba mais no site [stitches.dev](https://stitches.dev/) ou Git [modulz/stitches](https://github.com/modulz/stitches)
-
-## Radix
-
-Uma biblioteca de componentes de interface do usuário de código aberto para a construção de sistemas de design acessíveis e de alta qualidade e aplicativos web. . Saiba mais no site [radix-ui.com](https://www.radix-ui.com/) ou Git [radix-ui/primitives](https://github.com/radix-ui/primitives)
-
-## i18next
-
-react-i18next é uma biblioteca de internacionalização para React/React Native baseado no framework React i18n. Saiba mais no site [react.i18next.com](https://react.i18next.com/) ou Git [i18next/react-i18next](https://github.com/i18next/react-i18next)
-
-## React Router
-
-React Router é uma biblioteca de roteamento leve e totalmente em destaque para a biblioteca React/React Native. Saiba mais no site [reactrouter.com](https://reactrouter.com/) ou Git [remix-run/react-router](https://github.com/remix-run/react-router)
-
-## Helmet Assync
-
-Este componente Reutilizável React gerenciará todas as suas alterações na tag <head> do documento, para melhorar o seo do seu projeto.
-
-## Lodash
-
-Uma moderna biblioteca de utilitários JavaScript que oferece modularidade, desempenho e extras. Saiba mais no site [lodash.com](https://lodash.com/) ou Git [lodash/lodash](https://github.com/lodash/lodash/wiki/FP-Guide)
-
-## ESLint
-
-Ferramenta para encontrar e corrijir problemas em seu código JavaScript. Saiba mais no site [eslint.org](https://eslint.org/) ou Git [eslint/eslint](https://github.com/eslint/eslint)
-
-## Prettier
-
-Prettier é uma ferramenta de código opinativo para padronização do código. Saiba mais no site [prettier.io](https://prettier.io/) ou Git [prettier/prettier](https://github.com/prettier/prettier)
-
-
 ## 🚀 Passo a Passo como esse projeto foi criado
 
-Primeiro passo, iniciando um novo projeto com vite:
+- Primeiro passo, iniciando um novo projeto com vite:
 
 ## Vite
 
@@ -86,7 +47,7 @@ npx eslint --init
 #- Do you want to downgrade? » Yes
 #- Would you like to install them now with npm? » Yes
 ```
-Arquivo de configuração `.eslintrc.json`
+- Arquivo de configuração `.eslintrc.json`
 
 ```bash
 {
@@ -125,7 +86,7 @@ Arquivo de configuração `.eslintrc.json`
   }
 }
 ```
-Arquivo ignore ESLint `.eslintignore`
+- Criar arquivo ignore ESLint `.eslintignore`
 
 ```bash
 node_modules
@@ -133,7 +94,7 @@ node_modules
 /*.js
 ```
 
-Configurar vscode para corrigir o código em autosave usando eslint
+- Configurar vscode para corrigir o código em autosave usando eslint
 
 ```bash
 "editor.codeActionsOnSave": {
@@ -147,7 +108,7 @@ Configurar vscode para corrigir o código em autosave usando eslint
 npm install --save-dev prettier eslint-plugin-prettier eslint-config-prettier
 ```
 
-Criar de configuração do prettier `prettier.config.js`
+- Criar de configuração do prettier `prettier.config.js`
 
 ```bash
 module.exports = {
@@ -164,19 +125,99 @@ module.exports = {
 ```bash
 npm install react-router-dom@6
 ```
+- Criar um arquivo de roteamento e importar bibliotecas
+
+_src/Routes.tsx_
+```bash
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom'
+
+import { Contato } from './pages/Contato'
+import { Home } from './pages/Home'
+
+export function AppRoutes () {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contato" element={<Contato />} />
+      </Routes>
+    </Router>
+  )
+}
+```
+
+- Altere o arquivo App.tsx
+
+_src/App.tsx_
+```bash
+import { AppRoutes } from './Routes'
+
+function App() {
+  return (
+    <AppRoutes />
+  )
+}
+
+export default App
+```
 
 ## Helmet Async
 
 ```bash
 npm install react-helmet-async
 ```
+- Importe e adicione a tag `<HelmetProvider>` em main.tsx
 
-## Lodash
-
-### Lodash Merge
+_src/main.tsx_
 
 ```bash
-npm install @types/lodash.merge
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+
+import { HelmetProvider } from 'react-helmet-async'
+
+ReactDOM.render(
+    <React.StrictMode>
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
+    </React.StrictMode>,
+  document.getElementById('root')
+)
+```
+- Dentro de cada pagina que deseje adicionar meta para SEO, adicione o helmet
+
+Exemplo: _src/pages/Contato.tsx_
+
+```bash
+<Helmet>
+  <title>Contato</title>
+  <meta
+    name="description"
+    content="Entre em contato agora."
+  />
+  <link rel="canonical" href="/contato" />
+</Helmet>
+```
+- Crie arquivos `robots.txt` e `sitemap.txt` dentro da pasta public
+
+Exemplo: _public/robots.txt_
+
+```bash
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow:
+```
+Exemplo: _public/sitemap.txt_
+
+```bash
+https://seu-dominio.com/
+https://seu-dominio.com/contato
 ```
 
 ## Stitches
@@ -184,16 +225,55 @@ npm install @types/lodash.merge
 ```bash
 npm install @stitches/react
 ```
+- Criar arquivo de configuração stitches na raiz
+
+Exemplo: _stitches.config.tsx_
+
+```bash
+import { createStitches } from '@stitches/react';
+
+export const {
+  styled,
+  css,
+  globalCss,
+  keyframes,
+  getCssText,
+  theme,
+  createTheme,
+  config,
+} = createStitches({
+  theme: {
+    colors: {
+      gray400: 'gainsboro',
+      gray500: 'lightgray',
+    },
+  },
+  media: {
+    bp1: '(min-width: 480px)',
+  },
+  utils: {
+    marginX: (value) => ({ marginLeft: value, marginRight: value }),
+  },
+});
+```
+
+## Lodash
+
+- lodash.merge é utilizado em alguns componentes deste projeto (Instalação Opcional, caso não utilize esses componentes)
+
+```bash
+npm install @types/lodash.merge
+```
 
 ## Radix
 
-### Radix Colors
+- Radix Colors, é utilizado na estilização de cores em _stitches.config.tsx_ (Instalação Opcional, pode se usar sua propia paleta de cores)
 
 ```bash
 npm install @radix-ui/colors
 ```
 
-### Radix Colors
+- Radix Icons, é utilizado em alguns componentes deste projeto (Instalação Opcional, caso não utilize esses componentes)
 
 ```bash
 npm install @radix-ui/react-icons
@@ -205,14 +285,152 @@ npm install @radix-ui/react-icons
 npm install react-i18next i18next
 ```
 
-### React i18next Language Detector
+- React i18next Language Detector
 
 ```bash
 npm install i18next-browser-languagedetector
 ```
 
-### React i18next Http backend
+- React i18next Http backend
 
 ```bash
 npm install i18next-http-backend
 ```
+- Crie os arquivos `i18n.ts` e `i18n.constants.ts` dentro de sua pasta de preferência
+
+Exemplo: _src/utils/i18n/i18n.ts_
+
+```bash
+import i18next, { i18n as i18nInstance } from "i18next";
+import { initReactI18next } from "react-i18next";
+import { namespaces } from "./i18n.constants";
+import LanguageDetector from 'i18next-browser-languagedetector'
+import HttpApi from "i18next-http-backend";
+
+let i18nOptions = {
+  //lng: 'pt-BR',
+  supportedLngs: ['pt-BR', 'en'],
+  //fallbackLng: "pt-BR",
+  detection: {
+    order: ['navigator', 'localStorage', 'cookie', 'htmlTag', 'path', 'subdomain'],
+    caches: ['localStorage', 'cookie']
+  },
+  //preload: ['pt-BR'],
+  backend: {
+    loadPath: '/assets/locales/{{lng}}/{{ns}}.json',
+  },
+  ns: namespaces.common,
+  /* react: { useSuspense: false, } */
+}
+
+const createI18n = (): i18nInstance => {
+  const i18n = i18next.createInstance().use(initReactI18next);
+
+  i18n
+    .use(LanguageDetector)
+    .use(HttpApi)
+    .init(i18nOptions)
+
+  return i18n;
+};
+
+export const i18n = createI18n();
+```
+Exemplo: _src/utils/i18n/i18n.i18n.constants.ts_
+
+```bash
+export const namespaces = {
+  pages: {
+    home: "pages.home",
+  },
+  common: "common",
+};
+
+export const languages = {
+  pt: "pt-BR",
+  en: "en",
+};
+```
+
+- Crie os arquivos conforme cada idioma dentro de public/assets/locales/ Exemplo: _public/assets/locales/en/_ e _public/assets/locales/pt-BR/_
+
+- Crie um arquivo json com o conteúdo para cada idioma da página home por exemplo
+
+Exemplo Português: _public/assets/locales/pt-BR/page.home.json_
+
+```bash
+{
+  "hero": {
+    "title": "Soluções Digitais para Eventos",
+    "text": "Nossas soluções digitais ajudam a simplificar todas as etapas de eventos de pequeno, médio e grande porte."
+  }
+}
+```
+
+Exemplo Inglês: _public/assets/locales/en/page.home.json_
+
+```bash
+{
+  "hero": {
+    "title": "Digital Solutions for Events",
+    "text": "Our digital solutions help simplify all stages of small, medium and large events.",
+  }
+}
+```
+- Dentro do componente que for utilizar faça o seguinte
+
+```bash
+import { useTranslation } from 'react-i18next'
+import { namespaces } from '../utils/i18n/i18n.constants'
+
+export function App() {
+
+  const { t } = useTranslation(namespaces.pages.home)
+
+  return (
+    <>
+      <h1>{t("hero.title")}</h1>
+      <p>{t("hero.text")}</p>
+    </>
+  )
+}
+
+export default App
+```
+# 🛠 Tecnologias utilizadas
+
+## Vite
+
+A Vite que tem como objetivo a disponibilidade de módulos ES nativos no navegador e de ferramentas JavaScript escritas em idiomas compilados para nativos. Saiba mais no site [vitejs.dev](https://vitejs.dev/) ou Git [vitejs/vite](https://github.com/vitejs/vite)
+
+## Stitches
+
+Biblioteca para estilizar componentes ou criar design system. Saiba mais no site [stitches.dev](https://stitches.dev/) ou Git [modulz/stitches](https://github.com/modulz/stitches)
+
+## Radix
+
+Uma biblioteca de componentes de interface do usuário de código aberto para a construção de sistemas de design acessíveis e de alta qualidade e aplicativos web. . Saiba mais no site [radix-ui.com](https://www.radix-ui.com/) ou Git [radix-ui/primitives](https://github.com/radix-ui/primitives)
+
+## i18next
+
+react-i18next é uma biblioteca de internacionalização para React/React Native baseado no framework React i18n. Saiba mais no site [react.i18next.com](https://react.i18next.com/) ou Git [i18next/react-i18next](https://github.com/i18next/react-i18next)
+
+## React Router
+
+React Router é uma biblioteca de roteamento leve e totalmente em destaque para a biblioteca React/React Native. Saiba mais no site [reactrouter.com](https://reactrouter.com/) ou Git [remix-run/react-router](https://github.com/remix-run/react-router)
+
+## Helmet Assync
+
+Este componente Reutilizável React gerenciará todas as suas alterações na tag <head> do documento, para melhorar o seo do seu projeto.
+
+## Lodash
+
+Uma moderna biblioteca de utilitários JavaScript que oferece modularidade, desempenho e extras. Saiba mais no site [lodash.com](https://lodash.com/) ou Git [lodash/lodash](https://github.com/lodash/lodash/wiki/FP-Guide)
+
+## ESLint
+
+Ferramenta para encontrar e corrijir problemas em seu código JavaScript. Saiba mais no site [eslint.org](https://eslint.org/) ou Git [eslint/eslint](https://github.com/eslint/eslint)
+
+## Prettier
+
+Prettier é uma ferramenta de código opinativo para padronização do código. Saiba mais no site [prettier.io](https://prettier.io/) ou Git [prettier/prettier](https://github.com/prettier/prettier)
