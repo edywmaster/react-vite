@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from '../components'
+import { Box, Button } from '../components'
 import { darkTheme } from '../../stitches.config'
 import { SunIcon } from '@radix-ui/react-icons'
 import usePersistedState from '../utils/usePersistedState'

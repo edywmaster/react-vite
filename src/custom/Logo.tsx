@@ -4,7 +4,7 @@ import ewmLogo from '../assets/ewm.svg'
 const LogoClass = css({
 
   maxWidth: 120,
-  height: 'auto'
+  height: 40
 
 })
 

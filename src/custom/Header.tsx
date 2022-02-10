@@ -16,7 +16,7 @@ function CustomLink({ children, to, ...props }: LinkProps) {
   return (
     <>
       <Link
-        className={LinkAnchor({ variant: match ? 'active' : 'subtle', css: { mr: '$5', '@bp2': { mr: '$7' } } })}
+        className={LinkAnchor({ variant: match ? 'active' : 'subtle', css: { mr: '$3', '@bp2': { mr: '$7' } } })}
         to={to}
         {...props}
       >
@@ -29,7 +29,7 @@ function CustomLink({ children, to, ...props }: LinkProps) {
 
 export function Header() {
   return (
-    <Box css={{ background: '$bgTrasparent' }}>
+    <Box >
       <Container size="5" css={{
         px: '0px',
         '@bp2': {
@@ -39,16 +39,25 @@ export function Header() {
         <Flex
           as="header"
           css={{
+
             py: '$1',
             px: '$2',
             jc: 'space-between',
             position: 'relative',
+            alignItems: 'center',
             zIndex: '1',
             height: 50,
-            '@bp2': {
+
+            my: '$5',
+            bc: '$loContrast',
+            br: '$4',
+            bs: '$1',
+
+            '@bp1': {
               py: '$4',
               px: '$4',
-              height: 88
+              height: 88,
+
             }
           }}
         >
@@ -79,7 +88,9 @@ export function Header() {
             </span>
             <Logo />
           </Box>
+
           <Flex as="nav" css={{ ai: 'center' }}>
+
             <CustomLink to="/">
               <Text>Home</Text>
             </CustomLink>
@@ -87,7 +98,10 @@ export function Header() {
               <Text>Contato</Text>
             </CustomLink>
             <ToggleTheme />
+
           </Flex>
+
+
 
         </Flex>
       </Container>

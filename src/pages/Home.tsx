@@ -1,7 +1,9 @@
-import { Box, Container, Text } from '../components'
+import { Box, Section, Container, Text, Grid, Image } from '../components'
 import { Header } from '../custom/Header'
 import { TopBG } from '../custom/BackGround'
 import { Helmet } from 'react-helmet-async'
+import { Hero } from '../custom/Hero'
+
 
 export function Home() {
   return (
@@ -16,13 +18,7 @@ export function Home() {
       </Helmet>
       <TopBG />
       <Header />
-      <Container size="3" css={{
-        px: '$2',
-        '@bp2': {
-          px: '$7'
-        }
-      }}>
-      </Container>
+      <Hero />
     </Box>
   )
 }

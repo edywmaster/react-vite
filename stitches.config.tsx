@@ -53,6 +53,7 @@ export const {
       // Semantic colors
       bgTheme: '$slate1',
       bgIcons: '$violet4',
+      bgScrollBar: '$violet8',
       hiContrast: '$slate12',
       loContrast: '$slate1',
       canvas: 'hsl(0 0% 15%)',
@@ -121,7 +122,9 @@ export const {
     letterSpacings: {},
     borderWidths: {},
     borderStyles: {},
-    shadows: {},
+    shadows: {
+      1: ' 0px 0px 24px 1px rgba(0,0,0,0.1)'
+    },
     transitions: {},
   },
   media: {
@@ -270,6 +273,7 @@ export const darkTheme = createTheme('dark-theme', {
     // Semantic colors
     bgTheme: '$slate1',
     bgIcons: '$violet4',
+    bgScrollBar: '$violet4',
     hiContrast: '$slate12',
     loContrast: '$slate1',
     canvas: 'hsl(0 0% 15%)',
@@ -305,5 +309,13 @@ export const globalStyles = globalCss({
   '::selection': {
     backgroundColor: '$violet5',
   },
+  '::-webkit-scrollbar': {
+    width: 6,
+    height: 0,
+    scrollbarWidth: 6,
+  },
+  '::-webkit-scrollbar-thumb': {
+    background: '$bgScrollBar'
+  }
 
 });
