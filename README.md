@@ -1,4 +1,4 @@
-npm init vite@latest react-vite -- --template react-ts
+npm init vite@latest react-vite-i18next -- --template react-ts
 
 npm install
 
