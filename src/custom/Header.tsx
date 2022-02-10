@@ -8,6 +8,9 @@ import { Box, Container, Flex, Text, LinkAnchor } from '../components'
 import { Logo } from '../custom/Logo'
 import { ToggleTheme } from './ToggleTheme'
 
+import { useTranslation } from 'react-i18next'
+import { namespaces } from '../utils/i18n/i18n.constants'
+
 
 function CustomLink({ children, to, ...props }: LinkProps) {
   let resolved = useResolvedPath(to);
@@ -28,6 +31,9 @@ function CustomLink({ children, to, ...props }: LinkProps) {
 
 
 export function Header() {
+
+  const { t } = useTranslation(namespaces.common)
+
   return (
     <Box >
       <Container size="5" css={{
@@ -92,10 +98,10 @@ export function Header() {
           <Flex as="nav" css={{ ai: 'center' }}>
 
             <CustomLink to="/">
-              <Text>Home</Text>
+              <Text>{t("menu.home")}</Text>
             </CustomLink>
             <CustomLink to="/contato">
-              <Text>Contato</Text>
+              <Text>{t("menu.contact")}</Text>
             </CustomLink>
             <ToggleTheme />
 

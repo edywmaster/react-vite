@@ -2,7 +2,13 @@ import { styled, css, theme } from '../../stitches.config'
 import { Box, Container, Grid, Section, Text, Image, Flex, Heading } from '../components'
 import imgDev from '../assets/developer.svg'
 
+import { useTranslation } from 'react-i18next'
+import { namespaces } from '../utils/i18n/i18n.constants'
+
 export function Hero() {
+
+  const { t } = useTranslation(namespaces.pages.home)
+
   return (
     <Section>
 
@@ -32,11 +38,13 @@ export function Hero() {
             }
           }}>
             <Text size="8" css={{ fontWeight: 500, lineHeight: '38px', mb: '$4', '@bp2': { fontSize: '$9', lineHeight: '65px' } }}>
-              Soluções Digitais para Eventos
+              {t("hero.title")}
             </Text>
             <Text size="6" css={{ lineHeight: '27px', '@bp2': { mb: '$6' } }}>
-              Nossas soluções digitais ajudam a simplificar todas as etapas de pequenos, médios e grandes eventos.
+              {t("hero.text")}
             </Text>
+            <button>{t("buttons.ok", { ns: namespaces.common })}</button>
+            <button>{t("buttons.cancel", { ns: namespaces.common })}</button>
           </Box>
           <Box css={{
             ta: 'center',

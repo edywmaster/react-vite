@@ -1,0 +1,10 @@
+{
+  "buttons": {
+    "ok": "Ok",
+    "cancel": "Cancel"
+  },
+  "menu": {
+    "home": "Home",
+    "contact": "Contact"
+  }
+}
