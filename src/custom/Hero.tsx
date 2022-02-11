@@ -43,8 +43,6 @@ export function Hero() {
             <Text size="6" css={{ lineHeight: '27px', '@bp2': { mb: '$6' } }}>
               {t("hero.text")}
             </Text>
-            <button>{t("buttons.ok", { ns: namespaces.common })}</button>
-            <button>{t("buttons.cancel", { ns: namespaces.common })}</button>
           </Box>
           <Box css={{
             ta: 'center',

@@ -285,12 +285,10 @@ export const darkTheme = createTheme('dark-theme', {
   },
 })
 
-
-
 export const globalStyles = globalCss({
   '*': { margin: 0, padding: 0 },
   html: {
-    overflowX: 'hidden',
+    // overflowX: 'hidden',
   },
 
   body: {

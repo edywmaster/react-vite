@@ -6,5 +6,9 @@
   "menu": {
     "home": "Home",
     "contact": "Contact"
+  },
+  "droplng": {
+    "pt-BR": "Portuguese",
+    "en": "English"
   }
 }

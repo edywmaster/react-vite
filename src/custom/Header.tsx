@@ -4,12 +4,14 @@ import {
   useResolvedPath
 } from 'react-router-dom'
 import type { LinkProps } from "react-router-dom";
+
 import { Box, Container, Flex, Text, LinkAnchor } from '../components'
 import { Logo } from '../custom/Logo'
 import { ToggleTheme } from './ToggleTheme'
 
 import { useTranslation } from 'react-i18next'
 import { namespaces } from '../utils/i18n/i18n.constants'
+import { ToggleLanguage } from './ToggleLanguage';
 
 
 function CustomLink({ children, to, ...props }: LinkProps) {
@@ -103,6 +105,9 @@ export function Header() {
             <CustomLink to="/contato">
               <Text>{t("menu.contact")}</Text>
             </CustomLink>
+
+            <ToggleLanguage />
+
             <ToggleTheme />
 
           </Flex>

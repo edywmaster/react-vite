@@ -1,16 +1,18 @@
 import i18next, { i18n as i18nInstance } from "i18next";
 import { initReactI18next } from "react-i18next";
-import { languages, namespaces } from "./i18n.constants";
+import { namespaces } from "./i18n.constants";
 import LanguageDetector from 'i18next-browser-languagedetector'
 import HttpApi from "i18next-http-backend";
 
-let i18nOptions = {
+let Options = {
   //lng: 'pt-BR',
   supportedLngs: ['pt-BR', 'en'],
   //fallbackLng: "pt-BR",
   detection: {
-    order: ['navigator', 'localStorage', 'cookie', 'htmlTag', 'path', 'subdomain'],
-    caches: ['localStorage', 'cookie']
+    order: ['localStorage', 'cookie', 'navigator', 'htmlTag', 'path', 'subdomain'],
+    caches: ['localStorage', 'cookie'],
+    lookupLocalStorage: 'language',
+    lookupSessionStorage: 'language',
   },
   //preload: ['pt-BR'],
   backend: {
@@ -26,9 +28,10 @@ const createI18n = (): i18nInstance => {
   i18n
     .use(LanguageDetector)
     .use(HttpApi)
-    .init(i18nOptions)
+    .init(Options)
 
   return i18n;
 };
 
 export const i18n = createI18n();
+export const i18nOptions = Options

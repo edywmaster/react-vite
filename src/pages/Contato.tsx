@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { Box, Container, Heading, Text } from '../components'
+import { Box, Button, Container, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuRadioGroup, DropdownMenuSeparator, DropdownMenuTrigger, Heading, Section, Text } from '../components'
 import { Header } from '../custom/Header'
 import { TopBG } from '../custom/BackGround'
 
@@ -31,6 +31,7 @@ export function Contato() {
           <Text>
             Ola mundo
           </Text>
+
         </Container>
       </Box>
     </Box>
