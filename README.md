@@ -11,8 +11,8 @@ Estudo de como iniciar um projeto em 2022 utilizando novos métodos de criação
 
 - [x] Language toogle
   - [x] Detector de idioma do navegador do usuário
-  - [ ] Botão de alternância dos temas
-  - [ ] Armazenar preferência do usuário em localStore
+  - [x] Botão de alternância dos temas
+  - [x] Armazenar preferência do usuário em localStore
 
 ## 🚀 Passo a Passo como esse projeto foi criado
 
