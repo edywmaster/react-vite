@@ -454,7 +454,7 @@ export const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
 
 ## Vite
 
-A Vite que tem como objetivo a disponibilidade de módulos ES nativos no navegador e de ferramentas JavaScript escritas em idiomas compilados para nativos. Saiba mais no site [vitejs.dev](https://vitejs.dev/) ou Git [vitejs/vite](https://github.com/vitejs/vite)
+A Vite tem como objetivo a disponibilidade de módulos ES nativos no navegador e de ferramentas JavaScript escritas em idiomas compilados para nativos. Saiba mais no site [vitejs.dev](https://vitejs.dev/) ou Git [vitejs/vite](https://github.com/vitejs/vite)
 
 ## Stitches
 
