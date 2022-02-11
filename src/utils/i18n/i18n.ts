@@ -10,9 +10,11 @@ let Options = {
   //fallbackLng: "pt-BR",
   detection: {
     order: ['localStorage', 'cookie', 'navigator', 'htmlTag', 'path', 'subdomain'],
-    caches: ['localStorage', 'cookie'],
+
     lookupLocalStorage: 'language',
     lookupSessionStorage: 'language',
+
+    caches: ['localStorage', 'cookie'],
   },
   //preload: ['pt-BR'],
   backend: {
